@@ -1,0 +1,45 @@
+////
+/// Variables
+/// @group Variables
+////
+
+@import "fonts";
+@import "colors";
+@import "icons";
+
+// Susy
+//----------------------------------------------
+@include border-box-sizing;
+$susy: (
+  columns: 12,
+  //container: 1024px,
+  global-box-sizing: border-box
+);
+
+// Breakpoints
+//----------------------------------------------
+$xs: 380px;
+$s:  560px;
+$m:  768px;
+$l:  960px;
+
+// Colors
+//----------------------------------------------
+
+$color-primary:        	$eScience-blue;
+$color-primary-text:   	$eScience-gray;
+$color-secondary-text: 	$white;
+
+$base-font-color:      	$eScience-gray;
+$base-background-color:	$eScience-silver;
+$color-link:		   	$eScience-gray;
+$color-link-hover:     	$eScience-gray;
+
+// Typography
+//----------------------------------------------
+$base-font-family:   $sans;
+$base-font-weight:   300;
+$base-font-size:     16px;
+$base-line-height:   24px;
+$header-font-family: $sans;
+$header-font-weight: 400;

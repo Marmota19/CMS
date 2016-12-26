@@ -1,0 +1,119 @@
+////
+/// Placeholders
+/// @group Placeholders
+////
+
+// LAYOUT
+//----------------------------------------------
+
+// Container
+//----------------------
+%container {
+  @include container;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+// Wide Container
+//----------------------
+%wide {
+  @include bleed-x(100%);
+}
+
+// LISTS
+//----------------------------------------------
+
+// Lists Reset
+//----------------------
+%list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-image: none;
+}
+
+// Inline Block
+//----------------------
+%inline-block {
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  zoom: 1;
+}
+
+// IMAGES
+//----------------------------------------------
+
+// Image replacement
+//----------------------
+%replace-image {
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+}
+
+// ICONS
+//----------------------------------------------
+
+// Icon before - Static settings
+//----------------------
+%icon-before {
+  &:before {
+    @extend %inline-block;
+    vertical-align: baseline !important;
+    font: {
+      family: $icon;
+      style: normal;
+      weight: normal;
+      variant: normal;
+    };
+    text: {
+      decoration: inherit;
+      transform: none;
+    };
+    speak: none;
+    line-height: 1em;
+    width: 1em;
+  }
+}
+
+// Icon after - Static settings
+//----------------------
+%icon-after {
+  &:after {
+    @extend %inline-block;
+    vertical-align: baseline !important;
+    font: {
+      family: $icon;
+      style: normal;
+      weight: normal;
+      variant: normal;
+    };
+    text: {
+      decoration: inherit;
+      transform: none;
+    };
+    speak: none;
+    line-height: 1em;
+    width: 1em;
+  }
+}
+
+// BUTTONS
+//----------------------------------------------
+
+// Button - Static settings
+//----------------------
+%btn {
+  display: block;
+  margin: 20px 0;
+  a {
+    border-radius: 4px;
+    padding: 6px 12px;
+    color: #fff;
+    &:hover {
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}

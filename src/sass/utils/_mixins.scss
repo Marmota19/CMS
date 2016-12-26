@@ -1,0 +1,188 @@
+////
+/// Mixins
+/// @group Mixins
+////
+
+/// Sets the `with` and `heigh` of an element.
+///
+/// @name Size
+///
+/// @argument {arglist} $values
+///   The with and height of the element.
+///
+/// @example scss
+///   .element {
+///     @include size(20px, 40px);
+///   }
+///
+/// @example css
+///   .element {
+///     width: 20px;
+///     height: 20px;
+///   }
+
+// SIZE
+//----------------------------------------------
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// BACKGROUND COLOR
+//----------------------------------------------
+@mixin background-color($color, $important: null) {
+  @if ($important){
+        background-color: $color #{$important};
+        background: $color #{$important};
+    } @else{
+        background-color: $color;
+        background: $color;
+    }
+  
+}
+
+
+// Logo
+//----------------------
+@mixin logo($name, $width: false, $height: false, $position: false) {
+  @include replace-image;
+  display: block;
+  background-image: url(../img/#{$name}.svg);
+  .no-svg & {
+    background-image: url(../img/#{$name}.png);
+  }
+  background-repeat: no-repeat;
+  @if $width {
+    width: $width;
+  }
+  @if $height {
+    height: $height;
+  }
+  @if $position {
+    background-position: $position;
+  }
+}
+
+
+// IMAGES
+//----------------------------------------------
+
+// Image replacement
+//----------------------
+@mixin replace-image {
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+}
+
+// SVG background image with PNG fallback
+//----------------------
+@mixin bg-img($name, $size: false) {
+  background-image: url(../img/#{$name}.svg);
+  @if $size {
+    background-size: $size;
+  }
+  .no-svg & {
+    background-image: url(../img/#{$name}.png);
+  }
+}
+
+// CLEARFIX
+//----------------------------------------------
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// FONT SIZE
+//----------------------------------------------
+@mixin font-size($font-size) {
+  font-size: $font-size;
+  font-size: $font-size / $base-font-size * 1rem;
+}
+
+
+
+// LISTS RESET
+//----------------------
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-image: none;
+}
+
+// INLINE BLOCK
+//----------------------------------------------
+@mixin inline-block {
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  zoom: 1;
+}
+
+
+// ICONS
+//----------------------------------------------
+
+
+// Icon Before
+//----------------------
+@mixin icon-before($content) {
+  @include icon-settings(before);
+  &:before {
+    content: icon($content);
+  }
+}
+
+
+
+// Icon After
+//----------------------
+@mixin icon-after($content) {
+  @include icon-settings(after);
+  &:after {
+    content: icon($content);
+  }
+}
+
+
+// Icon Before Settings
+//----------------------
+@mixin icon-settings ($attribute){
+  &:#{$attribute} {
+    @include inline-block;
+    vertical-align: baseline !important;
+    font: {
+      family: $icon;
+      style: normal;
+      weight: normal;
+      variant: normal;
+    };
+    text: {
+      decoration: inherit;
+      transform: none;
+    };
+    speak: none;
+    line-height: 1em;
+    width: 1em;
+    margin-right: 5px;
+  }
+}
+
+
+// BUTTONS
+//----------------------------------------------
+@mixin btn($color) {
+  @extend %btn;
+  a {
+    background: $color;
+    border-bottom: 2px solid darken($color, 10%);
+    &:hover {
+      background: darken($color, 10%);
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "raiz",
+  "version": "1.0.0",
+  "description": "Gulp+LibSass+Susy+Breakpoint.",
+  "keywords": [
+    "gulp",
+    "libsass"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodericksandoval/raiz.git"
+  },
+  "homepage": "https://github.com/rodericksandoval/raiz#readme",
+  "author": "rodericksandoval@gmail.com",
+  "license": "MIT",
+  "private": true,
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp":              "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-cssnano":      "latest",
+    "gulp-notify":       "latest",
+    "gulp-sass":         "latest",
+    "gulp-shell":        "latest",
+    "gulp-sourcemaps":   "latest",
+    "gulp-uglify":       "latest",
+    "sassdoc":           "latest",
+    "browser-sync":      "latest"
+  },
+  "scripts": {
+    "postinstall": "find node_modules/ -name '*.info' -type f -delete"
+  }
+}

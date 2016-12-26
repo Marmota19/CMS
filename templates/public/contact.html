@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Contacto</title>
+		<link rel="stylesheet" type="text/css" href="../../css/style.css">
+		<script src="../../js/vendor/tinymce/js/tinymce/tinymce.min.js"></script>
+  	<script>tinymce.init({ selector:'textarea' });</script>
+		<title>Contácteme</title>
 	</head>
 	<body>
 		<header>
-			<h1>Contácteme</h1>
+			<nav class="main-menu">
+				<ul>
+					<li><a href="index.html">Inicio</a>
+					<li><a href="academicTraining.html">Formación</a></li>
+					<li><a href="selfInterests.html">Intereses Personales</a></li>
+					<li><a href="briefcase.html">Portafolio de Proyectos</a></li>
+					<li><a href="contact.html">Contácteme</a></li>
+				</ul>
+			</nav>
 		</header>
-		<nav>
-			<ul>
-				<li><a href="index.html">Regresar</a>
-				<li><a href="academicTraining.html">Formación</a></li>
-				<li><a href="selfInterests.html">Intereses Personales</a></li>
-				<li><a href="briefcase.html">Portafolio de Proyectos</a></li>
-				<li><a href="contact.html">Contácteme</a></li>
-			</ul>
-		</nav>
 		<main>
 			<article>
 				<section>
@@ -58,6 +60,9 @@
 							<div class="form-item">
 								<label for="edit-message">Mensaje</label>
 								<textarea name="message" id="edit-message" cols="60" rows="5"></textarea>
+							</div>
+							<div class="form-item">
+								<input id="edit-color" name="color" type="color">
 							</div>
 							<div class="form-item">
 								<input id="edit-submit" name="op" value="Enviar" type="submit">
