@@ -2,28 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
   <title>Editar Semestre Actual</title>
 </head>
 <body>
-  <header>
-    <h1>Editar Semestre Actual</h1>
-  </header>
-  <form action="" accept-charset="UTF-8">
-  <fieldset>
-    <div class="form-item">
-      <label for="edit-modality">Modalidad</label>
-      <input type="text" id="edit-modality" name="modality" value="Verano">
-    </div>
-    <div class="form-item">
-      <label for="edit-year">Año</label>
-      <input type="text" id="edit-year" name="year" value="2016">
-    </div>
-    <div class="form-item">
-      <input id="edit-submit" name="edit" value="Guardar" type="submit">
-    </div>
-  </fieldset>
+  <div class="l-page">
+    <header class="l-header">
+      <nav class="l-navigation">
+        <ul class="admin-main-menu">
+          <li><a href="home.html">Inicio</a>
+          <li><a href="adminAcademicTraining.html">Administrar Formación</a></li>
+          <li><a href="adminSelfInterests.html">Administrar Intereses</a></li>
+          <li><a href="adminCurrentSemester.html">Administrar Semestre Actual</a></li>
+          <li><a href="adminBriefcase.html">Administrar Portafolio</a></li>
+          <li><a href="adminContact.html">Administrar Información Contacto</a></li>
+          </ul>
+      </nav>
+    </header>
+    <main class="l-main">
+      <form action="" accept-charset="UTF-8">
+      <fieldset>
+        <div class="form-item">
+          <label for="edit-modality">Modalidad</label>
+          <input type="text" id="edit-modality" name="modality" value="Verano">
+        </div>
+        <div class="form-item">
+          <label for="edit-year">Año</label>
+          <input type="text" id="edit-year" name="year" value="2016">
+        </div>
+        <div class="form-item">
+          <input id="edit-submit" name="edit" value="Guardar" type="submit">
+        </div>
+      </fieldset>
+        
+      </form>
+      <a href="editCourse.html"> Agregar Curso</a>
+    </main>
     
-  </form>
-  <a href="editCourse.html"> Agregar Curso</a>
+  </div>
 </body>
 </html>

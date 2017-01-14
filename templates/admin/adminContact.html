@@ -2,84 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
   <title>Administrar Contácteme</title>
 </head>
 <body>
-  <header>
-    <h1>Administrar Contácteme</h1>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="">Inicio</a>
-      <li><a href="adminAcademicTraining.html">Administrar Formación</a></li>
-      <li><a href="adminSelfInterests.html">Administrar Intereses</a></li>
-      <li><a href="adminCurrentSemester.html">Administrar Semestre Actual</a></li>
-      <li><a href="#">Administrar Portafolio</a></li>
-      <li><a href="adminContact.html">Administrar Información Contacto</a></li>
-      </ul>
-  </nav>
+  <div class="l-page">
+    <header class="l-header">
+      <nav class="l-navigation">
+        <ul class="admin-main-menu">
+          <li><a href="home.html">Inicio</a>
+          <li><a href="adminAcademicTraining.html">Administrar Formación</a></li>
+          <li><a href="adminSelfInterests.html">Administrar Intereses</a></li>
+          <li><a href="adminCurrentSemester.html">Administrar Semestre Actual</a></li>
+          <li><a href="adminBriefcase.html">Administrar Portafolio</a></li>
+          <li><a href="adminContact.html">Administrar Información Contacto</a></li>
+          </ul>
+      </nav>
+    </header>
 
-  <main>
-    <h2>Información de Contacto</h2>
-    <fieldset>
-      <form action="" accept-charset="UTF-8">
-        <div class="form-item">
-          <label for="edit-name">Nombre</label>
-          <input type="text" id="edit-name" name="name">
-        </div>
-        <div class="form-item">
-          <label for="edit-email">Correo</label>
-          <input type="text" id="edit-email" name="email">
-        </div>
-        <div class="form-item">
-          <label for="edit-skype">Skype</label>
-          <input type="text" id="edit-skype" name="skype">
-        </div>
-        <div class="form-item">
-          <label for="edit-phone">Móvil</label>
-          <input type="text" id="edit-phone" name="phone">
-        </div>
-        <div class="form-item">
-            <input id="edit-submit" name="submit" value="Guardar" type="submit">
+    <main class="l-main">
+      <h2>Información de Contacto</h2>
+      <fieldset>
+        <form action="" accept-charset="UTF-8">
+          <div class="form-item">
+            <label for="edit-name">Nombre</label>
+            <input type="text" id="edit-name" name="name">
           </div>
-      </form>
-    </fieldset>
-    <section>
-      <h2>Administración de Mensajes</h2>
-      <table border="1">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Mensaje</th>
-            <th>Color</th>
-            <th>Teléfono</th>
-            <th>Fecha Inicio</th>
-            <th>Fecha Fin</th>
-            <th>Horario</th>
-            <th>Tema</th>
-            <th>-</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Jorge</td>
-            <td>jg@gmail.com</td>
-            <td>Un mensaje de prueba para contacto</td>
-            <td>Verde</td>
-            <td>8 319 0141</td>
-            <td>06/06/2016</td>
-            <td>07/06/2016</td>
-            <td>L-K-J-V</td>
-            <td>Proyectos</td>
-            <td><button>Eliminar</button></td>
-          </tr>
-        </tbody>
-    </table>
-    </section>
-  </main>
-
-
-  
+          <div class="form-item">
+            <label for="edit-email">Correo</label>
+            <input type="text" id="edit-email" name="email">
+          </div>
+          <div class="form-item">
+            <label for="edit-skype">Skype</label>
+            <input type="text" id="edit-skype" name="skype">
+          </div>
+          <div class="form-item">
+            <label for="edit-phone">Móvil</label>
+            <input type="text" id="edit-phone" name="phone">
+          </div>
+          <div class="form-item">
+              <input id="edit-submit" name="submit" value="Guardar" type="submit">
+            </div>
+        </form>
+      </fieldset>
+      <section>
+        <h2>Administración de Mensajes</h2>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Mensaje</th>
+              <th>Color</th>
+              <th>Teléfono</th>
+              <th>Fecha Inicio</th>
+              <th>Fecha Fin</th>
+              <th>Horario</th>
+              <th>Tema</th>
+              <th>-</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jorge</td>
+              <td>jg@gmail.com</td>
+              <td>Un mensaje de prueba para contacto</td>
+              <td>Verde</td>
+              <td>8 319 0141</td>
+              <td>06/06/2016</td>
+              <td>07/06/2016</td>
+              <td>L-K-J-V</td>
+              <td>Proyectos</td>
+              <td><button>Eliminar</button></td>
+            </tr>
+          </tbody>
+      </table>
+      </section>
+    </main>
+  </div>
 </body>
 </html>

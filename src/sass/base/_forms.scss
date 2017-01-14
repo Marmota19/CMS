@@ -1,0 +1,88 @@
+// FORMS
+//----------------------------------------------
+
+// Input
+//----------------------
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+textarea,
+.recaptcha_input_area input[type="text"] {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 2px 0px 2px 5px;
+  border: 1px solid #808080 !important;
+  &:focus {
+    outline: none;
+  }
+}
+
+// Submit Buttons
+//----------------------
+input[type="submit"] {
+  // @include font-size(16px);
+  margin: 0;
+  padding: 6px 8px;
+  box-shadow: none;
+  border: solid 1px $cms-blue;
+  border-radius: 2px;
+  background: transparent;
+  color: $cms-blue;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    cursor: pointer;
+    background: $cms-blue;
+    color: #fff;
+  }
+}
+
+// Text areas
+//----------------------
+.resizable-textarea .grippie {
+  border: 0;
+  background: none;
+}
+
+// Captcha
+//----------------------
+fieldset.captcha {
+  padding: 0;
+  border: 0;
+
+  img#recaptcha_logo,
+  .fieldset-legend {
+    display: none;
+  }
+
+  .fieldset-description {
+    padding: 10px 0;
+  }
+}
+
+// Webforms
+//----------------------
+.node-type-webform {
+  .recaptchatable,
+  .recaptchatable #recaptcha_image {
+    border: 0 !important;
+  }
+}
+
+// Required fields
+//----------------------
+.marker, .form-required {
+  // color: red;
+}
+
+
+
+
+
+
+
+
+
+
+

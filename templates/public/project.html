@@ -5,40 +5,42 @@
 		<link rel="stylesheet" type="text/css" href="../../css/style.css">
 	</head>
 	<body>
-		<header>
-			<nav class="main-menu">
-				<ul>
-					<li><a href="index.html">Inicio</a>
-					<li><a href="academicTraining.html">Formación</a></li>
-					<li><a href="selfInterests.html">Intereses Personales</a></li>
-					<li><a href="briefcase.html">Portafolio de Proyectos</a></li>
-					<li><a href="contact.html">Contácteme</a></li>
-				</ul>
-			</nav>
-		</header>
-		<main>
-			<article>
-				<section>
-					<dl>
-						<dt>Curso</dt>
-	  					<dd>{{semestre}} {{curso}} {{profesor}}</dd>
-	  					<dt>Resumen</dt>
-	  					<dd>{{resumen}}</dd>
-						<dt>Descripción</dt>
-	  					<dd>{{descripción}}</dd>
-	  				<dt>Tipo de Proyecto</dt>
-	  					<dd>{{tipo_proyecto}}</dd>
-	  				<dt>Forma trabajo</dt>
-	  					<dd>{{Individual/Grupal ({{cantidad_integrantes}} {{rol}}) }}</dd>
-	  				<dt>Tecnologias utilizadas</dt>
-	  					<dd>{{tecnologías}}</dd>
-					</dl>
-				</section>
+		<div class="l-page">
+			<header class="l-header">
+				<nav class="l-navigation">
+					<ul class="main-menu" >
+						<li><a href="index.html">Inicio</a>
+						<li><a href="academicTraining.html">Formación</a></li>
+						<li><a href="selfInterests.html">Intereses Personales</a></li>
+						<li><a href="briefcase.html">Portafolio de Proyectos</a></li>
+						<li><a href="contact.html">Contácteme</a></li>
+					</ul>
+				</nav>
+			</header>
+			<main class="l-main">
+				<article>
+					<section>
+						<dl>
+							<dt>Curso</dt>
+		  					<dd>{{semestre}} {{curso}} {{profesor}}</dd>
+		  					<dt>Resumen</dt>
+		  					<dd>{{resumen}}</dd>
+							<dt>Descripción</dt>
+		  					<dd>{{descripción}}</dd>
+		  				<dt>Tipo de Proyecto</dt>
+		  					<dd>{{tipo_proyecto}}</dd>
+		  				<dt>Forma trabajo</dt>
+		  					<dd>{{Individual/Grupal ({{cantidad_integrantes}} {{rol}}) }}</dd>
+		  				<dt>Tecnologias utilizadas</dt>
+		  					<dd>{{tecnologías}}</dd>
+						</dl>
+					</section>
 
-			</article>
-		</main>
-		<footer>
-			<p>Curso Web Verano</p>
-		</footer>
+				</article>
+			</main>
+			<footer class="l-footer">
+				<p>Curso Web Verano</p>
+			</footer>
+		</div>
 	</body>
 </html>

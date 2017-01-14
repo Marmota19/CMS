@@ -4,7 +4,9 @@
   "description": "Gulp+LibSass+Susy+Breakpoint.",
   "keywords": [
     "gulp",
-    "libsass"
+    "libsass",
+    "susy",
+    "breakpoint"
   ],
   "repository": {
     "type": "git",
@@ -23,6 +25,8 @@
     "gulp-sass":         "latest",
     "gulp-shell":        "latest",
     "gulp-sourcemaps":   "latest",
+    "gulp-svg2png":      "latest",
+    "gulp-svgmin":       "latest",
     "gulp-uglify":       "latest",
     "sassdoc":           "latest",
     "browser-sync":      "latest"

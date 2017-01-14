@@ -1,0 +1,133 @@
+// GLOBAL
+//----------------------------------------------
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.l-page{
+  @include container;
+}
+
+.l-header,
+.l-main,
+.l-footer {
+  @include clearfix;
+}
+
+// HEADER
+//----------------------
+.l-header {
+  background: $cms-blue;
+  position: relative;
+  padding: 20px;
+
+}
+
+// NAVIGATION
+//----------------------
+.l-navigation {
+  position: relative;
+  z-index: 8;
+  overflow: visible;
+  //float: right;
+  //@include span (last 9)
+}
+
+// MAIN
+//----------------------
+.l-main {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  //.not-front & {
+    padding-right: 20px;
+    padding-left: 20px;
+  //}
+}
+
+
+
+
+// FOOTER
+//----------------------
+.l-footer {
+  background: $cms-blue;
+  padding: 20px;
+  color: $white;
+
+}
+
+
+// BREAKPOINT MEDIUM
+//----------------------------------------------
+@include breakpoint($m) {
+
+//FOOTER COLUMNS
+  .l-footer-firstcolumn {
+    @include span(3);
+  }
+  .l-footer-secondcolumn {
+    @include span(6);
+  }
+  .l-footer-thirdcolumn {
+    @include span( last 3);
+  }
+
+// SIDEBARS
+  .sidebar-first,
+  .sidebar-second,
+  .two-sidebars {
+    .l-main-content {
+      @include span(last 9);
+    }
+    .l-sidebar-first,
+    .l-sidebar-second {
+      @include span(3);
+    }
+    .l-sidebar-second {
+      @include last;
+    }
+    .l-sidebar-second {
+      clear: right;
+    }
+  }
+}
+
+// BREAKPOINT LARGE
+//----------------------------------------------
+@include breakpoint($l) {
+
+  // SIDEBARS
+  .sidebar-first {
+    .l-main-content {
+      @include span(last 9);
+    }
+    .l-sidebar-first {
+      @include span(3);
+    }
+  }
+
+  .sidebar-second {
+    .l-main-content {
+      @include span(9);
+    }
+    .l-sidebar-second {
+      @include span(last 3);
+      clear: none;
+    }
+  }
+
+  .two-sidebars {
+    .l-main-content {
+      @include span(6);
+    }
+    .l-sidebar-first,
+    .l-sidebar-second {
+      @include span(3);
+    }
+    .l-sidebar-second {
+      @include last;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+// TYPOGRAPHY
+//----------------------------------------------
+
+// Global
+//----------------------
+body {
+  //font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  color: $base-font-color;
+  background: $base-background-color;
+}
+
+// Headers
+//----------------------
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font-family;
+  font-weight: $header-font-weight;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+h1 {
+  @include font-size($base-font-size * 2);
+
+}
+
+h2 {
+  @include font-size($base-font-size * 1.5);
+  &.page-title {
+    @include font-size(18px);
+
+    text-transform: uppercase;
+    color: $base-font-color;
+    //border-bottom: 2px solid $color-primary;
+    padding-bottom: 4px;
+  }
+}
+
+h3 {
+  @include font-size($base-font-size * 1);
+  &.field-label {
+    color: $base-font-color;
+    @include font-size(15px);
+    text-transform: uppercase;
+  }
+}
+
+// Body
+//----------------------
+p {}
+
+b, strong, label {
+  font-weight: 400;
+}
+
+small {
+  font-size: 80%;
+}
+
+blockquote, q {
+  quotes: none;
+  margin: 0;
+  font-style: italic;
+}
+
+// Links
+//----------------------
+a:link, a:visited, a:active, li a.active {
+  transition: all 250ms ease-in-out;
+  text-decoration: none;
+  color: $color-link;
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    color: $color-link-hover;
+    outline: 0;
+  }
+}

@@ -1,0 +1,124 @@
+// TABLES
+//----------------------------------------------
+// TABLES
+//----------------------------------------------
+
+/* REVISAR */
+
+tbody, tr.even, tr.odd {
+  background: transparent;
+}
+
+table {
+  width: 100%;
+  float: left;
+  //margin: 0 0 2em;
+
+  caption {
+    @include font-size(18px);
+    border-bottom: 3px solid $cms-blue;
+    padding-bottom: 0.35em;
+    font-weight: 400;
+  }
+
+  thead {
+    @include font-size(12px);
+    th {
+      //text-align: center;
+      border-bottom: 1px solid #808080;
+      padding: 0.35em 0 .35em;
+      font-weight: 600;
+      color:#4E4E4E;
+      a {
+        color:#4E4E4E;
+      }
+    }
+    td {
+      //text-align: center;
+      border-bottom: 1px solid #808080;
+      padding: 0.35em 0 .35em;
+    }
+  }
+
+  tbody {
+    border-bottom: 1px solid #808080;
+    //text-align: center;
+    tr {
+      border-bottom: 1px solid #ddd;
+      td {
+        padding: .75em 5px;
+        color:#4E4E4E;
+        @include font-size(11px);
+        a {
+          color:#4E4E4E;
+          text-decoration: none;
+          display: inline-block;
+          margin: 0 .5em 0 0;
+          &:hover, &:active, &:focus {
+            color: darken($cms-blue, 10%);
+            border: none;
+          }
+        }
+
+      }
+      th {
+        @include font-size(12px);
+        // text-align: center;
+        border-bottom: 1px solid #808080;
+        font-weight: 600;
+      }
+    }
+  }
+
+  tfoot {
+    td {
+      padding: 0.35em 0 .35em;
+      text-align: left;
+      font-size: 1.25em;
+    }
+  }
+
+  &.calendario-institucional {
+    caption {
+      text-align: left;
+    }
+    tbody tr {
+      td:first-child {
+        text-align: left;
+      }
+    }
+    thead tr:first-child {
+      th:first-child {
+        text-align: left;
+      }
+    }
+    thead tr {
+      th, td {
+        text-align: center;
+      }
+    }
+    tbody tr {
+      th, td {
+        text-align: center;
+      }
+    }
+    &.cfh {
+      thead tr {º
+        th:first-child {
+          width: 15%;
+        }
+      }
+      tbody tr {
+        td:first-child {
+          width: 15%;
+        }
+      }
+    }
+  }
+}
+
+.view-publications {
+  .views-table {
+    margin-bottom: 40px;
+  }
+}
