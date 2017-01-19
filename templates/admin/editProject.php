@@ -3,8 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../../css/style.css">
-  
   <title>Editar Proyecto</title>
+  <script>
+    function addNewCourse() {
+      var selectValue = document.getElementById("courses-list").value;
+      if (selectValue === "new") {
+        document.getElementById("new-course").style.display="block";
+      }else{
+        document.getElementById("new-course").style.display="none";
+      }
+    }
+
+    function validateCourse (){
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+
+              // Typical action to be performed when the document is ready:
+              var response = this.responseText;
+              var input = document.getElementById('edit-course-code');
+              var className;
+
+               if (response === '1') {
+                  className ='inccorrect';
+                  //input.style.border = "2px solid red";
+                  input.focus();
+
+               }else{
+                  className = 'correct';
+                  //input.style.border = "2px solid green";
+               }  
+
+               input.setAttribute("class", className);
+              
+                    
+          }
+      };
+
+      var code = document.getElementById("edit-course-code").value;
+      xhttp.open("GET", "../../php/checkCourse.php?code=" + code, true);
+      xhttp.send();
+  }
+  </script>
 </head>
 <body>
   <div class="l-page">
@@ -28,7 +68,7 @@
           <input type="text" id="edit-name" name="name">
         </div>
         <div class="form-item">
-          <select name="courses" id="courses-list" onchange="addNewCourse()">
+          <select name="courses" id="courses-list" onchange="addNewCourse();">
             <option value="">Seleccione uno</option>
             <?php 
               include ("../../php/dbConnect.php");
@@ -45,9 +85,9 @@
           </select>
           <div id="new-course" class="form-item hidden">
             <label for="edit-course-name">Nombre del Curso</label>
-            <input type="text" id="edit-course-name" name="course-name">
+            <input type="text" id="edit-course-name" name="course-name" placeholder="Nombre">
             <label for="edit-course-code">Código del Curso</label>
-            <input type="text" id="edit-course-code" name="course-code" onchange="validateCourse()">
+            <input type="text" id="edit-course-code" name="course-code" onchange="validateCourse()" placeholder="Código">
           </div>
         </div>
         <div class="form-item">
@@ -96,6 +136,6 @@
       </form>
     </main>
   </div>
-  <script type="text/javascript" src="../../js/script.js"></script>
+  
 </body>
 </html>
