@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  
   <title>Editar Proyecto</title>
 </head>
 <body>
@@ -27,7 +28,7 @@
           <input type="text" id="edit-name" name="name">
         </div>
         <div class="form-item">
-          <select name="courses" id="">
+          <select name="courses" id="courses-list" onchange="addNewCourse()">
             <option value="">Seleccione uno</option>
             <?php 
               include ("../../php/dbConnect.php");
@@ -40,12 +41,14 @@
               } else { echo "No hay datos"; }
              ?>
             <option value="new">Crear Nuevo</option>
+
           </select>
-
-          <!-- <label for="edit-course">Curso</label>
-          <input type="text" id="edit-course" name="course"> -->
-
-
+          <div id="new-course" class="form-item hidden">
+            <label for="edit-course-name">Nombre del Curso</label>
+            <input type="text" id="edit-course-name" name="course-name">
+            <label for="edit-course-code">Código del Curso</label>
+            <input type="text" id="edit-course-code" name="course-code" onchange="validateCourse()">
+          </div>
         </div>
         <div class="form-item">
           <label for="edit-summary">Resumen</label>
@@ -62,7 +65,7 @@
           <input type="radio" name="project-type" value="research">Investigación
         </div>
         <div class="form-item">
-          <label for="edit-metodology">Forma de Trabajo</label>
+          <label for="edit-metodology">Forma de Trabajo</label><br>
           <input type="radio" name="metodology" value="individual">Individual<br>
           <input type="radio" name="metodology" value="group">Grupo
         </div>
@@ -93,5 +96,6 @@
       </form>
     </main>
   </div>
+  <script type="text/javascript" src="../../js/script.js"></script>
 </body>
 </html>

@@ -30,13 +30,21 @@
             <tr>
                 <th>Curso</th>
                 <th>Nombre</th>
-                <th>-</th>
+                
             </tr>
-            <tr>
-                <td>WEB</td>
-                <td>Portafolio</td>
-                <td><a href="editProject.html">Editar</a></td>
-            </tr>
+
+            <?php 
+              include ("../../php/dbConnect.php");
+              $query = "SELECT course.name AS course, project.name AS project FROM project INNER JOIN course ON project.courseId = course.courseId"; 
+              $result = $conn->query($query); 
+              if ($result->num_rows > 0) { // output data of each row 
+                while($row = $result->fetch_assoc()) { 
+                  echo ("<tr><td>".$row["course"]."</td> <td>".$row["project"]."</td> </tr>");
+                } 
+              } else { 
+                echo ("<tr><td>No hay datos</td> <td>No hay datos</td> </tr>"); 
+              }
+             ?>
         </table>
       </section>
     </main>
