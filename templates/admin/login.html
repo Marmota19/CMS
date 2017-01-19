@@ -5,26 +5,37 @@
   <title>Login</title>
 </head>
 <body>
-  <header>
-    <h1>Iniciar Sesión</h1>
-  </header>
+  <div class="l-page">
+    <header class="l-header">
+      <nav class="l-navigation">
+        <ul class="admin-main-menu">
+          <li><a href="home.html">Inicio</a>
+          <li><a href="adminAcademicTraining.html">Administrar Formación</a></li>
+          <li><a href="adminSelfInterests.html">Administrar Intereses</a></li>
+          <li><a href="adminCurrentSemester.html">Administrar Semestre Actual</a></li>
+          <li><a href="adminBriefcase.php">Administrar Portafolio</a></li>
+          <li><a href="adminContact.html">Administrar Información Contacto</a></li>
+          </ul>
+      </nav>
+    </header>
 
-  <main>
-    <article>
-      <form action="" accept-charset="UTF-8">
-        <div class="form-item">
-          <label for="edit-name">Nombre de usuario</label>
-          <input id="edit-name" name="name" type="text">
-        </div>
-        <div class="form-item">
-          <label for="edit-pass">Contraseña</label>
-          <input id="edit-pass" name="password" type="password">
-        </div>
-        <div class="form-item">
-          <input id="edit-submit" name="submit" value="Iniciar sesión" type="submit">
-        </div>
-      </form>
-    </article>
-  </main>
+    <main class="l-main">
+      <article>
+        <form action="" accept-charset="UTF-8">
+          <div class="form-item">
+            <label for="edit-name">Nombre de usuario</label>
+            <input id="edit-name" name="name" type="text">
+          </div>
+          <div class="form-item">
+            <label for="edit-pass">Contraseña</label>
+            <input id="edit-pass" name="password" type="password">
+          </div>
+          <div class="form-item">
+            <input id="edit-submit" name="submit" value="Iniciar sesión" type="submit">
+          </div>
+        </form>
+      </article>
+    </main>
+    </div>
 </body>
 </html>

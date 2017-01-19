@@ -14,7 +14,7 @@
           <li><a href="adminAcademicTraining.html">Administrar Formación</a></li>
           <li><a href="adminSelfInterests.html">Administrar Intereses</a></li>
           <li><a href="adminCurrentSemester.html">Administrar Semestre Actual</a></li>
-          <li><a href="adminBriefcase.html">Administrar Portafolio</a></li>
+          <li><a href="adminBriefcase.php">Administrar Portafolio</a></li>
           <li><a href="adminContact.html">Administrar Información Contacto</a></li>
           </ul>
       </nav>
@@ -22,7 +22,7 @@
     <main class="l-main">
       <section>
         <h2>Agregar Nuevo Proyecto</h2>
-          <a href="editProject.html">Agregar</a>
+          <a href="editProject.php">Agregar</a>
       </section>
       <section>
         <h2>Proyectos Desarrollados</h2>

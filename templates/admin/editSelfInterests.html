@@ -5,23 +5,34 @@
   <title>Editar Intereses</title>
 </head>
 <body>
-<header>
-  <h1>Editar Intereses </h1>
-</header>
-  <main>
-    <form action="" accept-charset="UTF-8">
-      <div class="form-item">
-        <label for="edit-name">Nombre</label>
-        <input type="text" id="edit-name" name="name">
-      </div>
-      <div class="form-item">
-        <label for="edit-description">Descripción</label>
-        <textarea name="description" id="edit-description" cols="60" rows="5"></textarea>
-      </div>
-      <div class="form-item">
-        <input id="edit-submit" name="op" value="Guardar" type="submit">
-      </div>
-    </form>
-  </main>
+  <div class="l-page">
+    <header class="l-header">
+      <nav class="l-navigation">
+        <ul class="admin-main-menu">
+          <li><a href="home.html">Inicio</a>
+          <li><a href="adminAcademicTraining.html">Administrar Formación</a></li>
+          <li><a href="adminSelfInterests.html">Administrar Intereses</a></li>
+          <li><a href="adminCurrentSemester.html">Administrar Semestre Actual</a></li>
+          <li><a href="adminBriefcase.php">Administrar Portafolio</a></li>
+          <li><a href="adminContact.html">Administrar Información Contacto</a></li>
+          </ul>
+      </nav>
+    </header>
+    <main class="l-main">
+      <form action="" accept-charset="UTF-8">
+        <div class="form-item">
+          <label for="edit-name">Nombre</label>
+          <input type="text" id="edit-name" name="name">
+        </div>
+        <div class="form-item">
+          <label for="edit-description">Descripción</label>
+          <textarea name="description" id="edit-description" cols="60" rows="5"></textarea>
+        </div>
+        <div class="form-item">
+          <input id="edit-submit" name="op" value="Guardar" type="submit">
+        </div>
+      </form>
+    </main>
+  </div>
 </body>
 </html>

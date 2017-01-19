@@ -5,78 +5,88 @@
   <title>Editar Curso</title>
 </head>
 <body>
-<header>
-  <h1>Agregar/Editar Curso</h1>
-</header>
-  <main>
-    <section>
-      <form action="" accept-charset="UTF-8">
-      <fieldset>
-        <div class="form-item">
-          <label for="edit-code">Código</label>
-          <input type="text" id="edit-code" name="code">
-        </div>
-        <div class="form-item">
-          <label for="edit-name">Nombre</label>
-          <input type="text" id="edit-name" name="name">
-        </div>
-        <div class="form-item">  
-          <label for="edit-teacher">Profesor</label>
-          <input type="text" id="edit-teacher" name="teacher">
-        </div>
-        <div class="form-item">  
-          <label for="edit-credits">créditos</label>
-          <input type="text" id="edit-credits" name="credits">
-        </div>
-        <div class="form-item">
-          <label for="edit-day-monday">Lunes</label>
-          <input type="checkbox" id="edit-day-monday" name="day-monday">
-          <br>
-          <label for="edit-day-monday-schedule">Hora</label>
-          <input type="text" id="edit-day-monday-schedule" name="schedule">
-        </div>
-        <div class="form-item">
-          <label for="edit-day-tuesday">Martes</label>
-          <input type="checkbox" id="edit-day-tuesday" name="day-tuesday">
-          <br>
-          <label for="edit-day-tuesday-schedule">Hora</label>
-          <input type="text" id="edit-day-tuesday-schedule" name="schedule">
-        </div>
-        <div class="form-item">
-          <label for="edit-day-wednesday">Miércoles</label>
-          <input type="checkbox" id="edit-day-wednesday" name="day-wednesday">
-          <br>
-          <label for="edit-day-wednesday-schedule">Hora</label>
-          <input type="text" id="edit-day-wednesday-schedule" name="schedule">
-        </div>
-        <div class="form-item">
-          <label for="edit-day-thursday">Jueves</label>
-          <input type="checkbox" id="edit-day-thursday" name="day-thursday">
-          <br>
-          <label for="edit-day-thursday-schedule">Hora</label>
-          <input type="text" id="edit-day-thursday-schedule" name="schedule">
-        </div>
-        <div class="form-item">
-          <label for="edit-day-friday">Viernes</label>
-          <input type="checkbox" id="edit-day-friday" name="day-friday">
-          <br>
-          <label for="edit-day-friday-schedule">Hora</label>
-          <input type="text" id="edit-day-friday-schedule" name="schedule">
-        </div><div class="form-item">
-          <label for="edit-day-saturday">Sábado</label>
-          <input type="checkbox" id="edit-day-saturday" name="day-saturday">
-          <br>
-          <label for="edit-day-saturday-schedule">Hora</label>
-          <input type="text" id="edit-day-saturday-schedule" name="schedule">
-        </div>
+  <div class="l-page">
+    <header class="l-header">
+      <nav class="l-navigation">
+        <ul class="admin-main-menu">
+          <li><a href="home.html">Inicio</a>
+          <li><a href="adminAcademicTraining.html">Administrar Formación</a></li>
+          <li><a href="adminSelfInterests.html">Administrar Intereses</a></li>
+          <li><a href="adminCurrentSemester.html">Administrar Semestre Actual</a></li>
+          <li><a href="adminBriefcase.php">Administrar Portafolio</a></li>
+          <li><a href="adminContact.html">Administrar Información Contacto</a></li>
+          </ul>
+      </nav>
+    </header>
+    <main class="l-main">
+      <section>
+        <form action="" accept-charset="UTF-8">
+        <fieldset>
+          <div class="form-item">
+            <label for="edit-code">Código</label>
+            <input type="text" id="edit-code" name="code">
+          </div>
+          <div class="form-item">
+            <label for="edit-name">Nombre</label>
+            <input type="text" id="edit-name" name="name">
+          </div>
+          <div class="form-item">  
+            <label for="edit-teacher">Profesor</label>
+            <input type="text" id="edit-teacher" name="teacher">
+          </div>
+          <div class="form-item">  
+            <label for="edit-credits">créditos</label>
+            <input type="text" id="edit-credits" name="credits">
+          </div>
+          <div class="form-item">
+            <label for="edit-day-monday">Lunes</label>
+            <input type="checkbox" id="edit-day-monday" name="day-monday">
+            <br>
+            <label for="edit-day-monday-schedule">Hora</label>
+            <input type="text" id="edit-day-monday-schedule" name="schedule">
+          </div>
+          <div class="form-item">
+            <label for="edit-day-tuesday">Martes</label>
+            <input type="checkbox" id="edit-day-tuesday" name="day-tuesday">
+            <br>
+            <label for="edit-day-tuesday-schedule">Hora</label>
+            <input type="text" id="edit-day-tuesday-schedule" name="schedule">
+          </div>
+          <div class="form-item">
+            <label for="edit-day-wednesday">Miércoles</label>
+            <input type="checkbox" id="edit-day-wednesday" name="day-wednesday">
+            <br>
+            <label for="edit-day-wednesday-schedule">Hora</label>
+            <input type="text" id="edit-day-wednesday-schedule" name="schedule">
+          </div>
+          <div class="form-item">
+            <label for="edit-day-thursday">Jueves</label>
+            <input type="checkbox" id="edit-day-thursday" name="day-thursday">
+            <br>
+            <label for="edit-day-thursday-schedule">Hora</label>
+            <input type="text" id="edit-day-thursday-schedule" name="schedule">
+          </div>
+          <div class="form-item">
+            <label for="edit-day-friday">Viernes</label>
+            <input type="checkbox" id="edit-day-friday" name="day-friday">
+            <br>
+            <label for="edit-day-friday-schedule">Hora</label>
+            <input type="text" id="edit-day-friday-schedule" name="schedule">
+          </div><div class="form-item">
+            <label for="edit-day-saturday">Sábado</label>
+            <input type="checkbox" id="edit-day-saturday" name="day-saturday">
+            <br>
+            <label for="edit-day-saturday-schedule">Hora</label>
+            <input type="text" id="edit-day-saturday-schedule" name="schedule">
+          </div>
 
-        <div class="form-item">
-          <input id="edit-submit" name="submit" value="Guardar" type="submit">
-        </div>
-      </fieldset>
-    </form>
-  </section>
-  </main>
-  
+          <div class="form-item">
+            <input id="edit-submit" name="submit" value="Guardar" type="submit">
+          </div>
+        </fieldset>
+      </form>
+    </section>
+    </main>
+  </div>
 </body>
 </html>
