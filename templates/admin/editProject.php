@@ -43,7 +43,89 @@
       var code = document.getElementById("edit-course-code").value;
       xhttp.open("GET", "../../php/checkCourse.php?code=" + code, true);
       xhttp.send();
-  }
+    }
+
+    function addCourse() {
+      var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+
+                // Typical action to be performed when the document is ready:
+                var response = this.responseText;
+                var input = document.getElementById('edit-course-code');
+
+
+                 if (response === '-1') {
+                  console.log("Error");
+
+                 }else{
+                  var coursesList = document.getElementById("courses-list");
+                  var opt = document.createElement('option');
+
+                  var courseName = document.getElementById("edit-course-name").value + '-' + document.getElementById('edit-course-code').value;
+                  
+                  opt.value = response;
+                  opt.text = courseName;
+                  coursesList.add(opt);
+                    
+                 }       
+                      
+            }
+        };
+
+        var code = document.getElementById("edit-course-code").value;
+        var name = document.getElementById("edit-course-name").value;
+        xhttp.open("GET", "../../php/addCourse.php?code=" + code + "&name=" + name, true);
+        xhttp.send();
+    }
+
+    function addTech() {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+
+                // Typical action to be performed when the document is ready:
+                var response = this.responseText;
+
+
+                if(response != '0') {
+
+                    var techsList = document.getElementById('techs-list');
+                    var li = document.createElement("LI");
+
+                    // Crear Input
+                    var checkbox = document.createElement('INPUT');
+                    var techName = document.getElementById("edit-tech-name").value;
+                    checkbox.type = 'checkbox';
+                    checkbox.value = response;
+                    checkbox.name = techName;
+
+                    // Crear Label
+                    var label = document.createElement('LABEL');
+                    label.innerHTML = techName;
+
+                    li.appendChild(checkbox);
+                    li.appendChild(label);
+                    techsList.appendChild(li);
+
+                }
+            }
+        };
+
+        var techName = document.getElementById("edit-tech-name").value;
+
+        xhttp.open("GET", "../../php/addTech.php?name=" + techName, true);
+        xhttp.send();
+    }
+    function validateMeth() {
+      if (document.getElementById("group-meth").checked){
+        document.getElementById("group-details").style.display="block"
+      }else{
+        document.getElementById("group-details").style.display="none"
+      }
+      
+    }
   </script>
 </head>
 <body>
@@ -62,7 +144,7 @@
     </header>
     <main class="l-main">
     <h1>Editar/Agregar Proyecto</h1>
-      <form action="" accept-charset="UTF-8">
+    
         <div class="form-item">
           <label for="edit-name">Nombre</label>
           <input type="text" id="edit-name" name="name">
@@ -83,12 +165,13 @@
             <option value="new">Crear Nuevo</option>
 
           </select>
-          <div id="new-course" class="form-item hidden">
-            <label for="edit-course-name">Nombre del Curso</label>
-            <input type="text" id="edit-course-name" name="course-name" placeholder="Nombre">
-            <label for="edit-course-code">Código del Curso</label>
-            <input type="text" id="edit-course-code" name="course-code" onchange="validateCourse()" placeholder="Código">
-          </div>
+        </div>
+        <div style="display: none;" id="new-course" class="form-item hidden">
+          <label for="edit-course-name">Nombre del Curso</label>
+          <input type="text" id="edit-course-name" name="course-name" placeholder="Nombre">
+          <label for="edit-course-code">Código del Curso</label>
+          <input type="text" id="edit-course-code" name="course-code" onchange="validateCourse()" placeholder="Código">
+          <button onclick="addCourse();">Agregar</button>
         </div>
         <div class="form-item">
           <label for="edit-summary">Resumen</label>
@@ -106,10 +189,10 @@
         </div>
         <div class="form-item">
           <label for="edit-metodology">Forma de Trabajo</label><br>
-          <input type="radio" name="metodology" value="individual">Individual<br>
-          <input type="radio" name="metodology" value="group">Grupo
+          <input type="radio" name="metodology" onclick="validateMeth();" value="individual">Individual<br>
+          <input type="radio" id="group-meth" name="metodology" onclick="validateMeth();" value="group">Grupo<br>
         </div>
-        <div id="group-details" class="form-item hidden">
+        <div style="display: none;" id="group-details" class="form-item hidden">
           <label for="edit-amount-">Cantidad de personas</label>
           <input type="text" id="edit-amount-" name="amount">
           <label for="edit-rol-">Rol</label>
@@ -117,23 +200,29 @@
         </div>
         <div class="form-item">
           <label for="edit-technologies">Tecnologías utilizadas</label><br>
+          <ul id="techs-list">
+            
+          
           <?php 
               include ("../../php/dbConnect.php");
-              $query = "SELECT name FROM technology"; 
+              $query = "SELECT technologyId, name FROM technology"; 
               $result = $conn->query($query); 
               if ($result->num_rows > 0) { // output data of each row 
                 while($row = $result->fetch_assoc()) { 
-                  echo("<input type='checkbox' name='".$row["name"]."' value='".$row["name"]."'>".$row["name"]."<br>"); 
+                  echo("<li><input type='checkbox' name='".$row["name"]."' value='".$row["technologyId"]."'> <label>".$row["name"]."</label></li> "); 
                 } 
               } else { echo "No hay datos"; }
              ?>
-          <!-- <textarea name="technologies" id="edit-technologies" cols="60" rows="5"></textarea> -->
+          </ul>
+          <label for="edit-tech-name">Nueva Tecnología</label><br>
+          <input type="text" id="edit-tech-name" name="edit-tech-name" placeholder="Nueva Tecnología">
+          <button onclick="addTech()">Agregar</button>
         </div>
 
         <div class="form-item">
           <input id="edit-submit" name="op" value="save" type="submit">
         </div>
-      </form>
+      
     </main>
   </div>
   
