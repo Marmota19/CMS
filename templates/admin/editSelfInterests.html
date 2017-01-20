@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
   <title>Editar Intereses</title>
 </head>
 <body>
@@ -9,7 +10,7 @@
     <header class="l-header">
       <nav class="l-navigation">
         <ul class="admin-main-menu">
-          <li><a href="home.html">Inicio</a>
+          <li><a href="login.html">Inicio</a>
           <li><a href="adminAcademicTraining.html">Administrar Formación</a></li>
           <li><a href="adminSelfInterests.html">Administrar Intereses</a></li>
           <li><a href="adminCurrentSemester.html">Administrar Semestre Actual</a></li>
@@ -27,6 +28,11 @@
         <div class="form-item">
           <label for="edit-description">Descripción</label>
           <textarea name="description" id="edit-description" cols="60" rows="5"></textarea>
+        </div>
+        <div class="form-item">
+          <label for="edit-img">Imagen</label>
+          <input type="file" id="edit-img" name="img">
+          <input type="submit" id="upload" value="Subir al servidor" name="upload">
         </div>
         <div class="form-item">
           <input id="edit-submit" name="op" value="Guardar" type="submit">

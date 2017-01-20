@@ -32,11 +32,11 @@
                }else{
                   className = 'correct';
                   //input.style.border = "2px solid green";
-               }  
+               }
 
                input.setAttribute("class", className);
-              
-                    
+
+
           }
       };
 
@@ -63,13 +63,13 @@
                   var opt = document.createElement('option');
 
                   var courseName = document.getElementById("edit-course-name").value + '-' + document.getElementById('edit-course-code').value;
-                  
+
                   opt.value = response;
                   opt.text = courseName;
                   coursesList.add(opt);
-                    
-                 }       
-                      
+
+                 }
+
             }
         };
 
@@ -124,7 +124,7 @@
       }else{
         document.getElementById("group-details").style.display="none"
       }
-      
+
     }
   </script>
 </head>
@@ -133,7 +133,7 @@
     <header class="l-header">
       <nav class="l-navigation">
         <ul class="admin-main-menu">
-          <li><a href="home.html">Inicio</a>
+          <li><a href="login.html">Inicio</a>
           <li><a href="adminAcademicTraining.html">Administrar Formación</a></li>
           <li><a href="adminSelfInterests.html">Administrar Intereses</a></li>
           <li><a href="adminCurrentSemester.html">Administrar Semestre Actual</a></li>
@@ -144,7 +144,7 @@
     </header>
     <main class="l-main">
     <h1>Editar/Agregar Proyecto</h1>
-    
+
         <div class="form-item">
           <label for="edit-name">Nombre</label>
           <input type="text" id="edit-name" name="name">
@@ -152,14 +152,14 @@
         <div class="form-item">
           <select name="courses" id="courses-list" onchange="addNewCourse();">
             <option value="">Seleccione uno</option>
-            <?php 
+            <?php
               include ("../../php/dbConnect.php");
-              $query = "SELECT courseId, name, code FROM course"; 
-              $result = $conn->query($query); 
-              if ($result->num_rows > 0) { // output data of each row 
-                while($row = $result->fetch_assoc()) { 
+              $query = "SELECT courseId, name, code FROM course";
+              $result = $conn->query($query);
+              if ($result->num_rows > 0) { // output data of each row
+                while($row = $result->fetch_assoc()) {
                   echo ("<option value='".$row["name"]."'>".$row["name"]. " - " . $row["code"]."</option>");
-                } 
+                }
               } else { echo "No hay datos"; }
              ?>
             <option value="new">Crear Nuevo</option>
@@ -201,16 +201,16 @@
         <div class="form-item">
           <label for="edit-technologies">Tecnologías utilizadas</label><br>
           <ul id="techs-list">
-            
-          
-          <?php 
+
+
+          <?php
               include ("../../php/dbConnect.php");
-              $query = "SELECT technologyId, name FROM technology"; 
-              $result = $conn->query($query); 
-              if ($result->num_rows > 0) { // output data of each row 
-                while($row = $result->fetch_assoc()) { 
-                  echo("<li><input type='checkbox' name='".$row["name"]."' value='".$row["technologyId"]."'> <label>".$row["name"]."</label></li> "); 
-                } 
+              $query = "SELECT technologyId, name FROM technology";
+              $result = $conn->query($query);
+              if ($result->num_rows > 0) { // output data of each row
+                while($row = $result->fetch_assoc()) {
+                  echo("<li><input type='checkbox' name='".$row["name"]."' value='".$row["technologyId"]."'> <label>".$row["name"]."</label></li> ");
+                }
               } else { echo "No hay datos"; }
              ?>
           </ul>
@@ -222,9 +222,9 @@
         <div class="form-item">
           <input id="edit-submit" name="op" value="save" type="submit">
         </div>
-      
+
     </main>
   </div>
-  
+
 </body>
 </html>

@@ -10,7 +10,7 @@
     <header class="l-header">
       <nav class="l-navigation">
         <ul class="admin-main-menu">
-          <li><a href="home.html">Inicio</a>
+          <li><a href="login.html">Inicio</a>
           <li><a href="adminAcademicTraining.html">Administrar Formación</a></li>
           <li><a href="adminSelfInterests.html">Administrar Intereses</a></li>
           <li><a href="adminCurrentSemester.html">Administrar Semestre Actual</a></li>
@@ -20,13 +20,66 @@
       </nav>
     </header>
 
-    <section>
-      <h1>Administrar Formación</h1>
-    </section>
-
-    <section>
-        <a href="editAcademicTraining.html">Editar</a>
-    </section>
+    <main class="l-main" role="main">
+      <ol>
+        <li> Universidad
+          <form action="" accept-charset="UTF-8">
+            <div class="form-item">
+              <label for="edit-title">Nombre</label>
+              <input type="text" id="edit-title" name="title" value="TEC">
+            </div>
+            <div class="form-item">
+              <label for="edit-img">Imagen</label>
+              <input type="file" id="edit-img" name="img">
+              <input type="submit" id="upload" value="Subir al servidor" name="upload">
+            </div>
+            <div class="form-item">
+              <label for="edit-link">Link</label>
+               <input type="text" id="edit-link" name="link" value="www.tec.ac.cr">
+            </div>
+            <div class="form-item">
+              <label for="edit-career">Carrera</label>
+              <input type="text" id="edit-career" name="career" value="Ing. Computación">
+            </div>
+            <div class="form-item">
+              <label for="edit-year">Año</label>
+              <input type="text" id="edit-year" name="year" value="2013-2017">
+            </div>
+            <div class="form-item">
+              <input id="edit-submit" name="submit" value="Guardar" type="submit">
+            </div>
+          </form>
+        </li>
+        <li> Secundaria
+          <form action="" accept-charset="UTF-8">
+            <div class="form-item">
+              <label for="edit-title">Nombre</label>
+              <input type="text" id="edit-title" name="title" value="CTP Nandayure">
+            </div>
+            <div class="form-item">
+              <label for="edit-img">Imagen</label>
+              <input type="file" id="edit-img" name="img">
+              <input type="submit" id="upload" value="Subir al servidor" name="upload">
+            </div>
+            <div class="form-item">
+              <label for="edit-link">Link</label>
+               <input type="text" id="edit-link" name="link">
+            </div>
+            <div class="form-item">
+              <label for="edit-career">Especialidad</label>
+              <input type="text" id="edit-career" name="career" value="Turismo AyB">
+            </div>
+            <div class="form-item">
+              <label for="edit-year">Año</label>
+              <input type="text" id="edit-year" name="year" value="2012">
+            </div>
+            <div class="form-item">
+              <input id="edit-submit" name="submit" value="Guardar" type="submit">
+            </div>
+          </form>
+        </li>
+      </ol>
+    </main>
 
   </div>
 </body>

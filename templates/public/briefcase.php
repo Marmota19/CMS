@@ -33,12 +33,18 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>IC-B016</td>
-									<td>WEB</td>
-									<td>Emilia Zeledon</td>
-									<td>K-M-J 1pm-5pm</td>
-								</tr>
+								<?php
+		              include ("../../php/dbConnect.php");
+		              $query = "SELECT course.code, course.name, course.teacher, course.schedule FROM course";
+		              $result = $conn->query($query);
+		              if ($result->num_rows > 0) { // output data of each row
+		                while($row = $result->fetch_assoc()) {
+		                  echo ("<tr><td>".$row["code"]."</td> <td>".$row["name"]."</td> <td>".$row["teacher"]."</td> <td>".$row["schedule"]."</td> </tr>");
+		                }
+		              } else {
+		                echo ("<tr><td>No hay datos</td> <td>No hay datos</td> </tr>");
+		              }
+		            ?>
 							</tbody>
 						</table>
 					</section>
@@ -46,24 +52,27 @@
 					<section>
 				        <h2>Proyectos Desarrollados</h2>
 				        <table border="1">
+				        	<thead>
 				            <tr>
 				                <th>Curso</th>
 				                <th>Nombre</th>
 				                <th>Resumen</th>
 				            </tr>
-
-				            <?php 
+									</thead>
+									<tbody>
+				            <?php
 				              include ("../../php/dbConnect.php");
-				              $query = "SELECT course.name AS course, project.name AS project,project.summary AS summary  FROM project INNER JOIN course ON project.courseId = course.courseId"; 
-				              $result = $conn->query($query); 
-				              if ($result->num_rows > 0) { // output data of each row 
-				                while($row = $result->fetch_assoc()) { 
+				              $query = "SELECT course.name AS course, project.name AS project,project.summary AS summary  FROM project INNER JOIN course ON project.courseId = course.courseId";
+				              $result = $conn->query($query);
+				              if ($result->num_rows > 0) { // output data of each row
+				                while($row = $result->fetch_assoc()) {
 				                  echo ("<tr><td>".$row["course"]."</td> <td>".$row["project"]."</td> <td>".$row["summary"]."</td> </tr>");
-				                } 
-				              } else { 
-				                echo ("<tr><td>No hay datos</td> <td>No hay datos</td> </tr>"); 
+				                }
+				              } else {
+				                echo ("<tr><td>No hay datos</td> <td>No hay datos</td> </tr>");
 				              }
 				             ?>
+				          </tbody>
 				        </table>
 				      </section>
 

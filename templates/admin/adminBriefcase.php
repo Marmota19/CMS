@@ -10,7 +10,7 @@
     <header class="l-header">
       <nav class="l-navigation">
         <ul class="admin-main-menu">
-          <li><a href="home.html">Inicio</a>
+          <li><a href="login.html">Inicio</a>
           <li><a href="adminAcademicTraining.html">Administrar Formación</a></li>
           <li><a href="adminSelfInterests.html">Administrar Intereses</a></li>
           <li><a href="adminCurrentSemester.html">Administrar Semestre Actual</a></li>
@@ -20,6 +20,9 @@
       </nav>
     </header>
     <main class="l-main">
+      <section>
+        <h1>Administrar Portafolio</h1>
+      </section>
       <section>
         <h2>Agregar Nuevo Proyecto</h2>
           <a href="editProject.php">Agregar</a>
@@ -33,16 +36,16 @@
                 <th>Resumen</th>
             </tr>
 
-            <?php 
+            <?php
               include ("../../php/dbConnect.php");
-              $query = "SELECT course.name AS course, project.name AS project,project.summary AS summary  FROM project INNER JOIN course ON project.courseId = course.courseId"; 
-              $result = $conn->query($query); 
-              if ($result->num_rows > 0) { // output data of each row 
-                while($row = $result->fetch_assoc()) { 
+              $query = "SELECT course.name AS course, project.name AS project,project.summary AS summary  FROM project INNER JOIN course ON project.courseId = course.courseId";
+              $result = $conn->query($query);
+              if ($result->num_rows > 0) { // output data of each row
+                while($row = $result->fetch_assoc()) {
                   echo ("<tr><td>".$row["course"]."</td> <td>".$row["project"]."</td> <td>".$row["summary"]."</td> </tr>");
-                } 
-              } else { 
-                echo ("<tr><td>No hay datos</td> <td>No hay datos</td> </tr>"); 
+                }
+              } else {
+                echo ("<tr><td>No hay datos</td> <td>No hay datos</td> </tr>");
               }
              ?>
         </table>
