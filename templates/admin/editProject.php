@@ -126,6 +126,30 @@
       }
 
     }
+    function addProject() {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+
+                // Typical action to be performed when the document is ready:
+                var response = this.responseText;
+
+
+                if(response != '0') {
+
+                }
+            }
+        };
+
+        var projectName = document.getElementById("edit-name").value;
+        var courseName = document.getElementById("courses-list").value;
+        var projectSummary = document.getElementById("edit-summary").value;
+        var projectDescription = document.getElementById("edit-description").value;
+
+        xhttp.open("GET", "../../php/addProject.php?name=" + techName, true);
+        xhttp.send();
+    }
   </script>
 </head>
 <body>
@@ -175,7 +199,7 @@
         </div>
         <div class="form-item">
           <label for="edit-summary">Resumen</label>
-          <textarea name="summary" id="edit-summary" cols="60" rows="5"></textarea>
+          <textarea name="summary" id="edit-summary" cols="60" rows="5" value="hh"></textarea>
         </div>
         <div class="form-item">
           <label for="edit-description">Descripción</label>
@@ -220,7 +244,7 @@
         </div>
 
         <div class="form-item">
-          <input id="edit-submit" name="op" value="save" type="submit">
+          <input id="edit-submit" name="op" value="save" type="submit" onclick="addProject();">
         </div>
 
     </main>

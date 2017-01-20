@@ -42,7 +42,7 @@
 		                  echo ("<tr><td>".$row["code"]."</td> <td>".$row["name"]."</td> <td>".$row["teacher"]."</td> <td>".$row["schedule"]."</td> </tr>");
 		                }
 		              } else {
-		                echo ("<tr><td>No hay datos</td> <td>No hay datos</td> </tr>");
+		                echo ("<tr><td>No hay datos</td> <td>No hay datos</td> td>No hay datos</td>td>No hay datos</td></tr>");
 		              }
 		            ?>
 							</tbody>
