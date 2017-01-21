@@ -63,35 +63,7 @@ html, body {
 //----------------------------------------------
 @include breakpoint($m) {
 
-//FOOTER COLUMNS
-  .l-footer-firstcolumn {
-    @include span(3);
-  }
-  .l-footer-secondcolumn {
-    @include span(6);
-  }
-  .l-footer-thirdcolumn {
-    @include span( last 3);
-  }
 
-// SIDEBARS
-  .sidebar-first,
-  .sidebar-second,
-  .two-sidebars {
-    .l-main-content {
-      @include span(last 9);
-    }
-    .l-sidebar-first,
-    .l-sidebar-second {
-      @include span(3);
-    }
-    .l-sidebar-second {
-      @include last;
-    }
-    .l-sidebar-second {
-      clear: right;
-    }
-  }
 }
 
 // BREAKPOINT LARGE
@@ -99,35 +71,6 @@ html, body {
 @include breakpoint($l) {
 
   // SIDEBARS
-  .sidebar-first {
-    .l-main-content {
-      @include span(last 9);
-    }
-    .l-sidebar-first {
-      @include span(3);
-    }
-  }
-
-  .sidebar-second {
-    .l-main-content {
-      @include span(9);
-    }
-    .l-sidebar-second {
-      @include span(last 3);
-      clear: none;
-    }
-  }
-
-  .two-sidebars {
-    .l-main-content {
-      @include span(6);
-    }
-    .l-sidebar-first,
-    .l-sidebar-second {
-      @include span(3);
-    }
-    .l-sidebar-second {
-      @include last;
-    }
-  }
+  
+  
 }

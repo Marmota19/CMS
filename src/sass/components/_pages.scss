@@ -1,0 +1,79 @@
+//PUBLIC FORM STYLES
+.form-item {
+  padding-bottom: 5px;
+}
+
+table {
+  img {
+    max-height: 50px;
+  }
+}
+
+
+
+//PUBLIC HOME STYLES
+
+.index-container > aside {
+  @include span (4);
+  &:nth-child(2) {
+    @include span (8 last);
+  }
+
+}
+
+.index-img-container {
+  img {
+    height: 300px;
+    width: auto;
+  }
+}
+
+
+//PUBLIC ACADEMIC TRAINING STYLES
+
+.academic-training-list {
+  @include list-reset;
+
+  li {
+    text-align: center;
+    border: solid $cms-blue 1px;
+    @include span (6);
+    &:nth-child(2) {
+      @include span (6 last);
+    }
+
+    img {
+      max-height: 200px;
+    }
+
+  }
+}
+
+//PUBLIC SELFT INTERESTS STYLES
+
+.interest-wrapper {
+  .interest {
+    text-align: center;
+    border: solid $cms-blue 1px;
+    @include span (4);
+    &:nth-child(3) {
+      @include span (4 last);
+    }
+
+    img {
+      height: 200px;
+    }
+  }
+}
+
+
+//ADMIN ACADEMIC TRAINING STYLES
+
+.admin-academic-training-list {
+  li {
+    padding-bottom: 20px;
+    &:nth-child(2) {
+      padding-bottom: 0;
+    }
+  }
+}

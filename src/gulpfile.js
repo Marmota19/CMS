@@ -35,7 +35,7 @@ gulp.task('styles', function () {
 // Autoprefix
   .pipe(autoprefixer(["last 1 version", "> 1%", "ie 8"]))
 // Minify
-  .pipe(cssnano())
+ // .pipe(cssnano())
 // Write sourcemaps
   .pipe(sourcemaps.write('./'))
 // Output
