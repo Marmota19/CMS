@@ -25,7 +25,7 @@
               var className;
 
                if (response === '1') {
-                  className ='inccorrect';
+                  className ='incorrect';
                   //input.style.border = "2px solid red";
                   input.focus();
 
@@ -118,6 +118,7 @@
         xhttp.open("GET", "../../php/addTech.php?name=" + techName, true);
         xhttp.send();
     }
+
     function validateMeth() {
       if (document.getElementById("group-meth").checked){
         document.getElementById("group-details").style.display="block"
@@ -126,6 +127,54 @@
       }
 
     }
+
+    function getProjectTypeValue () {
+      var radios = document.getElementsByName('project-type');
+
+        for (var i = 0, length = radios.length; i < length; i++) {
+            if (radios[i].checked) {
+                // do whatever you want with the checked radio
+                return(radios[i].value);
+
+                // only one radio can be logically checked, don't check the rest
+                break;
+            }
+        }
+    }
+
+    function getMethodologyValue () {
+      var radios = document.getElementsByName('methodology');
+
+        for (var i = 0, length = radios.length; i < length; i++) {
+            if (radios[i].checked) {
+                // do whatever you want with the checked radio
+                return(radios[i].value);
+
+                // only one radio can be logically checked, don't check the rest
+                break;
+            }
+        }
+    }
+
+    function getUsedTech(argument) {
+      
+
+      var checkboxes = document.getElementsByName('edit-technologies');
+      var vals = "";
+      for (var i=0, n=checkboxes.length;i<n;i++) 
+      {
+          if (checkboxes[i].checked) 
+          {
+              vals += ","+checkboxes[i].value;
+          }
+      }
+      if (vals) vals = vals.substring(1);
+      return(vals);
+
+
+    }
+
+
     function addProject() {
 
         var xhttp = new XMLHttpRequest();
@@ -142,14 +191,29 @@
             }
         };
 
-        var projectName = document.getElementById("edit-name").value;
-        var courseName = document.getElementById("courses-list").value;
-        var projectSummary = document.getElementById("edit-summary").value;
-        var projectDescription = document.getElementById("edit-description").value;
+        var projectName = "";
+        var courseId = "";
+        var projectSummary = "";
+        var projectDescription = "";
+        var projectTypeId = "";
+        var methodologyId = "";
+        var usedTech = "";
 
-        xhttp.open("GET", "../../php/addProject.php?name=" + techName, true);
+        projectName = document.getElementById("edit-name").value;
+        courseId = document.getElementById("courses-list").value;
+        projectSummary = document.getElementById("edit-summary").value;
+        projectDescription = document.getElementById("edit-description").value;
+        projectTypeId = getProjectTypeValue();
+        methodologyId = getMethodologyValue();
+        usedTech = getUsedTech();
+
+        alert(projectName + courseId + projectSummary + projectDescription + projectTypeId + methodologyId + usedTech);
+
+        xhttp.open("GET", "../../php/addProject.php?name="+projectName+"&courseId="+courseId+"&summary="+projectSummary+"&description="+projectDescription+"&projectTypeId="+projectTypeId+"&methodologyId="+methodologyId+"&technology="+usedTech, true);
         xhttp.send();
     }
+
+    
   </script>
 </head>
 <body>
@@ -182,7 +246,7 @@
               $result = $conn->query($query);
               if ($result->num_rows > 0) { // output data of each row
                 while($row = $result->fetch_assoc()) {
-                  echo ("<option value='".$row["name"]."'>".$row["name"]. " - " . $row["code"]."</option>");
+                  echo ("<option value='".$row["courseId"]."'>".$row["name"]. " - " . $row["code"]."</option>");
                 }
               } else { echo "No hay datos"; }
              ?>
@@ -207,14 +271,23 @@
         </div>
         <div class="form-item">
           <label for="edit-project-type">Tipo de Proyecto</label><br>
-          <input type="radio" name="project-type" value="infrastructure">Infraestructura<br>
-          <input type="radio" name="project-type" value="development">Desarrollo<br>
-          <input type="radio" name="project-type" value="research">Investigación
+
+          <?php
+              include ("../../php/dbConnect.php");
+              $query = "SELECT projectTypeId, name FROM projectType";
+              $result = $conn->query($query);
+              if ($result->num_rows > 0) { // output data of each row
+                while($row = $result->fetch_assoc()) {
+                  echo ("<input type='radio' value='".$row["projectTypeId"]."' name='project-type'>".$row["name"]."<br>");
+                }
+              } else { echo "No hay datos"; }
+             ?>
+          
         </div>
         <div class="form-item">
-          <label for="edit-metodology">Forma de Trabajo</label><br>
-          <input type="radio" name="metodology" onclick="validateMeth();" value="individual">Individual<br>
-          <input type="radio" id="group-meth" name="metodology" onclick="validateMeth();" value="group">Grupo<br>
+          <label for="edit-methodology">Forma de Trabajo</label><br>
+          <input type="radio" name="methodology" onclick="validateMeth();" value="1">Individual<br>
+          <input type="radio" id="group-meth" name="methodology" onclick="validateMeth();" value="2">Grupo<br>
         </div>
         <div style="display: none;" id="group-details" class="form-item hidden">
           <label for="edit-amount-">Cantidad de personas</label>
@@ -233,7 +306,7 @@
               $result = $conn->query($query);
               if ($result->num_rows > 0) { // output data of each row
                 while($row = $result->fetch_assoc()) {
-                  echo("<li><input type='checkbox' name='".$row["name"]."' value='".$row["technologyId"]."'> <label>".$row["name"]."</label></li> ");
+                  echo("<li><input type='checkbox' name='edit-technologies' value='".$row["name"]."'> <label>".$row["name"]."</label></li> ");
                 }
               } else { echo "No hay datos"; }
              ?>

@@ -31,14 +31,14 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mcortes`.`metodology`
+-- Table `mcortes`.`methodology`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mcortes`.`methodology` (
-  `metodologyId` INT NOT NULL AUTO_INCREMENT,
+  `methodologyId` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(128) NOT NULL,
   `peopleAmount` INT NULL DEFAULT NULL,
   `role` VARCHAR(128) NULL DEFAULT NULL,
-  PRIMARY KEY (`metodologyId`))
+  PRIMARY KEY (`methodologyId`))
 ENGINE = InnoDB;
 
 
@@ -59,16 +59,17 @@ CREATE TABLE IF NOT EXISTS `mcortes`.`project` (
   `projectId` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(128) NOT NULL,
   `summary` TEXT NULL DEFAULT NULL,
-  `metodologyId` INT NOT NULL,
+  `technology` TEXT NULL DEFAULT NULL,
+  `methodologyId` INT NOT NULL,
   `projectTypeId` INT NOT NULL,
   `courseId` INT NOT NULL,
   PRIMARY KEY (`projectId`),
-  INDEX `fk_project_metodology1_idx` (`metodologyId` ASC),
+  INDEX `fk_project_methodology1_idx` (`methodologyId` ASC),
   INDEX `fk_project_projectType1_idx` (`projectTypeId` ASC),
   INDEX `fk_project_course1_idx` (`courseId` ASC),
-  CONSTRAINT `fk_project_metodology1`
-    FOREIGN KEY (`metodologyId`)
-    REFERENCES `mcortes`.`metodology` (`metodologyId`)
+  CONSTRAINT `fk_project_methodology1`
+    FOREIGN KEY (`methodologyId`)
+    REFERENCES `mcortes`.`methodology` (`methodologyId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_project_projectType1`
