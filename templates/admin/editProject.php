@@ -207,10 +207,33 @@
         methodologyId = getMethodologyValue();
         usedTech = getUsedTech();
 
-        alert(projectName + courseId + projectSummary + projectDescription + projectTypeId + methodologyId + usedTech);
+        alert("Proyecto agregado");
 
         xhttp.open("GET", "../../php/addProject.php?name="+projectName+"&courseId="+courseId+"&summary="+projectSummary+"&description="+projectDescription+"&projectTypeId="+projectTypeId+"&methodologyId="+methodologyId+"&technology="+usedTech, true);
         xhttp.send();
+    }
+    var imgCount = 0;
+    function agregarImagen() {
+      var listaImg = document.getElementById('listaImg');
+      var nodo = document.createElement("LI");
+      // Crear Input
+      var inputFile = document.createElement('INPUT');
+      inputFile.type = 'file';
+      inputFile.name = 'imageFile_' + imgCount;
+      // Crear Button
+      var button = document.createElement('BUTTON');
+      button.innerHTML = "X";
+      button.addEventListener("click", removerImagen, false);
+      nodo.appendChild(inputFile);
+      nodo.appendChild(button);
+      listaImg.appendChild(nodo);
+      imgCount++;
+    }
+    function removerImagen(pEvent) {
+      var element = pEvent.currentTarget;
+      var node = element.parentNode;
+      var list = node.parentNode;
+      list.removeChild(node);
     }
 
     
@@ -314,6 +337,13 @@
           <label for="edit-tech-name">Nueva Tecnología</label><br>
           <input type="text" id="edit-tech-name" name="edit-tech-name" placeholder="Nueva Tecnología">
           <button onclick="addTech()">Agregar</button>
+        </div>
+
+        <div class="form-item">
+          <label>Imagenes</label>
+          <ul id="listaImg">
+          </ul>
+          <button type="button" class="add-item" onclick="agregarImagen()">Agregar Imagen Nueva</button>
         </div>
 
         <div class="form-item">
