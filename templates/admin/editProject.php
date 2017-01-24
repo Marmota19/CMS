@@ -209,7 +209,7 @@
         methodologyId = getMethodologyValue();
         usedTech = getUsedTech();
 
-        alert("Proyecto agregado");
+        alert(projectName+courseId+projectTypeId+methodologyId);
 
         xhttp.open("GET", "../../php/addProject.php?name="+projectName+"&courseId="+courseId+"&summary="+projectSummary+"&description="+projectDescription+"&projectTypeId="+projectTypeId+"&methodologyId="+methodologyId+"&technology="+usedTech+"&amount="+peopleAmount+"&role="+role, true);
         xhttp.send();
@@ -315,9 +315,9 @@
           <input type="radio" id="group-meth" name="methodology" onclick="validateMeth();" value="2">Grupo<br>
         </div>
         <div style="display: none;" id="group-details" class="form-item hidden">
-          <label for="edit-amount-">Cantidad de personas</label>
+          <label for="amount">Cantidad de personas</label>
           <input type="text" id="edit-amount-" name="amount">
-          <label for="edit-rol-">Rol</label>
+          <label for="rol">Rol</label>
           <input type="text" id="edit-rol-" name="rol">
         </div>
         <div class="form-item">
