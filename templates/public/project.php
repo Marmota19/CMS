@@ -18,25 +18,24 @@
 				</nav>
 			</header>
 			<main class="l-main">
-				<h1>{{ProyectoX}}</h1>
 				<article>
 					<?php
 			      if(isset($_COOKIE['projectId'])) {
 			        $projectId = $_COOKIE['projectId'];
 			        include ("../../php/dbConnect.php");
 			        // Get the list of technologies
-			        $listaTech = "";
-			        $sql = "SELECT tech.name name
-			        FROM technology tech
-			        INNER JOIN technologiesPerProject techP ON techP.technologyId = tech.technologyId
-			        WHERE techP.projectId = $projectId";
-			        $technologies = $conn->query($sql);
-			        if ($technologies->num_rows > 0){
-			          while($row = $technologies->fetch_assoc()){
-			            $tech = $row["name"];
-			            $listaTech .= $tech . ",";
-			          }
-			        }
+			        // $listaTech = "";
+			        // $sql = "SELECT tech.name name
+			        // FROM technology tech
+			        // INNER JOIN technologiesPerProject techP ON techP.technologyId = tech.technologyId
+			        // WHERE techP.projectId = $projectId";
+			        // $technologies = $conn->query($sql);
+			        // if ($technologies->num_rows > 0){
+			        //   while($row = $technologies->fetch_assoc()){
+			        //     $tech = $row["name"];
+			        //     $listaTech .= $tech . ",";
+			        //   }
+			        // }
 			        // Get the list of images
 
 			        $tableContent = "";
@@ -54,7 +53,7 @@
 			            </tr>";
 			          }
 			        }
-            	$query = "SELECT project.name projectName, project.summary projectSummary, project.technology, projectType.name projectType, course.name courseName, course.teacher courseTeacher, meth.name methForm, meth.peopleAmount methCount, meth.role methRole FROM project project
+            	$query = "SELECT project.role role, project.peopleAmount amount, project.name projectName, project.summary projectSummary, project.technology, projectType.name projectType, course.name courseName, course.teacher courseTeacher, meth.name methForm FROM project project
 			        INNER JOIN projectType projectType ON projectType.projectTypeId = project.projectTypeId
 			        INNER JOIN course course ON course.courseId = project.courseId
 			        INNER JOIN methodology meth ON meth.methodologyId = project.methodologyId
@@ -91,10 +90,10 @@
 			                          $row['methForm'] . "'></dd>
 			                        <dt>Cantidad de Personas</dt>
 			                        <dd><input type='text' readonly value='" .
-			                          $row['methCount'] . "'></dd>
+			                          $row['amount'] . "'></dd>
 			                        <dt>Rol en el Proyecto</dt>
 			                        <dd><input type='text' readonly value='" .
-			                          $row['methRole'] . "'></dd>
+			                          $row['role'] . "'></dd>
 			                        <dt>Tecnologias utilizadas</dt>
 			                        <dd><input type='text' readonly value='" .
 			                          $row['technology'] . "'></dd>

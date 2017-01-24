@@ -157,13 +157,13 @@
     }
 
     function getUsedTech(argument) {
-      
+
 
       var checkboxes = document.getElementsByName('edit-technologies');
       var vals = "";
-      for (var i=0, n=checkboxes.length;i<n;i++) 
+      for (var i=0, n=checkboxes.length;i<n;i++)
       {
-          if (checkboxes[i].checked) 
+          if (checkboxes[i].checked)
           {
               vals += ","+checkboxes[i].value;
           }
@@ -203,13 +203,15 @@
         courseId = document.getElementById("courses-list").value;
         projectSummary = document.getElementById("edit-summary").value;
         projectDescription = document.getElementById("edit-description").value;
+        peopleAmount = document.getElementById("edit-amount-").value;
+        role = document.getElementById("edit-rol-").value;
         projectTypeId = getProjectTypeValue();
         methodologyId = getMethodologyValue();
         usedTech = getUsedTech();
 
         alert("Proyecto agregado");
 
-        xhttp.open("GET", "../../php/addProject.php?name="+projectName+"&courseId="+courseId+"&summary="+projectSummary+"&description="+projectDescription+"&projectTypeId="+projectTypeId+"&methodologyId="+methodologyId+"&technology="+usedTech, true);
+        xhttp.open("GET", "../../php/addProject.php?name="+projectName+"&courseId="+courseId+"&summary="+projectSummary+"&description="+projectDescription+"&projectTypeId="+projectTypeId+"&methodologyId="+methodologyId+"&technology="+usedTech+"&amount="+peopleAmount+"&role="+role, true);
         xhttp.send();
     }
     var imgCount = 0;
@@ -236,7 +238,7 @@
       list.removeChild(node);
     }
 
-    
+
   </script>
 </head>
 <body>
@@ -305,7 +307,7 @@
                 }
               } else { echo "No hay datos"; }
              ?>
-          
+
         </div>
         <div class="form-item">
           <label for="edit-methodology">Forma de Trabajo</label><br>
@@ -341,8 +343,7 @@
 
         <div class="form-item">
           <label>Imagenes</label>
-          <ul id="listaImg">
-          </ul>
+          <ul id="listaImg"></ul>
           <button type="button" class="add-item" onclick="agregarImagen()">Agregar Imagen Nueva</button>
         </div>
 
