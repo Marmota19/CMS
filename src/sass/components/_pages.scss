@@ -81,3 +81,11 @@ table {
 .project-link {
   cursor: pointer;
 }
+
+.incorrect {
+  border: red solid 1px !important;
+}
+
+.correct {
+  border: green solid 1px !important;
+}
