@@ -288,7 +288,8 @@ textarea,
 .recaptcha_input_area input[type="text"] {
   box-sizing: border-box;
   max-width: 100%;
-  padding: 2px 0px 2px 5px; }
+  padding: 2px 0px 2px 5px;
+  border: 1px solid #808080 !important; }
   input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="password"]:focus,
@@ -438,6 +439,9 @@ table img {
   .admin-academic-training-list li:nth-child(2) {
     padding-bottom: 0; }
 
+.project-link {
+  cursor: pointer; }
+
 html, body {
   margin: 0;
   padding: 0;
@@ -480,10 +484,4 @@ html, body {
   padding: 20px;
   color: #fff; }
 
-.correct {
-  border: 1px solid green;
-}
-
-.incorrect {
-  border: 1px solid red;
-}
+/*# sourceMappingURL=style.css.map */

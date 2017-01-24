@@ -99,7 +99,7 @@
                     var techName = document.getElementById("edit-tech-name").value;
                     checkbox.type = 'checkbox';
                     checkbox.value = response;
-                    checkbox.name = techName;
+                    checkbox.name = "technology_" + response;
 
                     // Crear Label
                     var label = document.createElement('LABEL');

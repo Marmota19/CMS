@@ -22,7 +22,7 @@
 					<?php
 						if(isset($_COOKIE['projectId'])) {
 							$projectId = $_COOKIE['projectId'];
-							include ("../../server/conexion.php");
+							include ("../../php/dbConnect.php");
 							// Get the list of technologies
 							$listaTech = "";
 							$sql = "SELECT tech.name name
@@ -38,29 +38,29 @@
 							}
 							// Get the list of images
 							$tableContent = "";
-							$sql = "SELECT imgName
-							FROM projectImages
+							$sql = "SELECT name
+							FROM image
 							WHERE projectId = $projectId";
 							$dbImages = $conn->query($sql);
 							if ($dbImages->num_rows > 0){
 								while($row = $dbImages->fetch_assoc()) {
-									$imgName = $row['imgName'];
+									$imgName = $row['name'];
 									$tableContent .= "<tr>
 										<td>
-											<img alt='" . $imgName . "' src='../../img/cms_img/" . $imgName . "'>
+											<img alt='" . $imgName . "' src='../../img/" . $imgName . "'>
 										</td>
 									</tr>";
 								}
 							}
-			             	$query = "SELECT project.name projectName, project.summary projectSummary,
-								projectType.name projectType,
-								course.name courseName, course.teacher courseTeacher,
-								meth.name methForm, meth.peopleAmount methCount, meth.role methRole
-							FROM project project
-							INNER JOIN projectType projectType ON projectType.projectTypeId = project.projectTypeId
-							INNER JOIN course course ON course.courseId = project.courseId
-							INNER JOIN methodology meth ON meth.metodologyId = project.metodologyId
-							WHERE project.projectId = $projectId";
+		         	$query = "SELECT project.name projectName, project.summary projectSummary,
+		          projectType.name projectType,
+		          course.name courseName, course.teacher courseTeacher,
+		          meth.name methForm, project.peopleAmount methCount, project.role methRole
+			        FROM project project
+			        INNER JOIN projectType projectType ON projectType.projectTypeId = project.projectTypeId
+			        INNER JOIN course course ON course.courseId = project.courseId
+			        INNER JOIN methodology meth ON meth.methodologyId = project.methodologyId
+			        WHERE project.projectId = $projectId";
 							$result = $conn->query($query);
 			             	if ($result->num_rows > 0) { // output data of each row
 			                	while($row = $result->fetch_assoc()) {
@@ -105,7 +105,7 @@
 												<section class='gallery'>
 													<header class='page-header'>
 														<h1>
-															Galeria
+															Galería
 														</h1>
 													</header>
 													<table>"

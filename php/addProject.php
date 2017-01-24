@@ -57,6 +57,8 @@
     }
 
      echo $projectId;
+     $url='../templates/admin/adminBriefcase.php';
+     echo '<script>window.location = "'.$url.'";</script>';
   }else {
         echo "-1";
   }
