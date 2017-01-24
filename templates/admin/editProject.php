@@ -209,10 +209,12 @@
         methodologyId = getMethodologyValue();
         usedTech = getUsedTech();
 
-        alert(projectName+courseId+projectTypeId+methodologyId);
+        alert("Proyecto Agregado!");
+        window.location="adminBriefcase.php"; 
 
-        xhttp.open("GET", "../../php/addProject.php?name="+projectName+"&courseId="+courseId+"&summary="+projectSummary+"&description="+projectDescription+"&projectTypeId="+projectTypeId+"&methodologyId="+methodologyId+"&technology="+usedTech+"&amount="+peopleAmount+"&role="+role, true);
+        xhttp.open("POST", "../../php/addProject.php?name="+projectName+"&courseId="+courseId+"&summary="+projectSummary+"&description="+projectDescription+"&projectTypeId="+projectTypeId+"&methodologyId="+methodologyId+"&technology="+usedTech+"&amount="+peopleAmount+"&role="+role, true);
         xhttp.send();
+        
     }
     var imgCount = 0;
     function agregarImagen() {
@@ -257,14 +259,14 @@
     </header>
     <main class="l-main">
     <h1>Editar/Agregar Proyecto</h1>
-
+      <form method="post" action="../../php/addProject.php" enctype="multipart/form-data" onload="adminBriefcase.php">
         <div class="form-item">
           <label for="edit-name">Nombre</label>
           <input type="text" id="edit-name" name="name">
         </div>
         <div class="form-item">
           <select name="courses" id="courses-list" onchange="addNewCourse();">
-            <option value="">Seleccione uno</option>
+            <option value="" >Seleccione uno</option>
             <?php
               include ("../../php/dbConnect.php");
               $query = "SELECT courseId, name, code FROM course";
@@ -348,9 +350,9 @@
         </div>
 
         <div class="form-item">
-          <input id="edit-submit" name="op" value="save" type="submit" onclick="addProject();">
+          <input id="edit-submit" name="op" value="save" type="submit">
         </div>
-
+      </form>
     </main>
   </div>
 

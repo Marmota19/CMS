@@ -102,7 +102,7 @@
 			                  <section class='gallery'>
 			                    <header class='page-header'>
 			                      <h1>
-			                        Galeria
+			                        Galería
 			                      </h1>
 			                    </header>
 			                    <table>"

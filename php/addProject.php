@@ -1,32 +1,32 @@
 <?php
   include("dbConnect.php");
 
-  if(isset($_GET['courseId']) && isset($_GET['name']) && isset($_GET['projectTypeId']) && isset($_GET['methodologyId'])) {
-    if ($_GET['methodologyId'] == 1) {
-      $query = "INSERT INTO project (name, summary, technology, methodologyId, projectTypeId, courseId) VALUES ('".$_GET['name']."','".$_GET['summary']. "','".$_GET['technology']."',".$_GET['methodologyId'].",".$_GET['projectTypeId'].",".$_GET['courseId'].")";
+  if(isset($_POST['courses']) && isset($_POST['name']) && isset($_POST['project-type']) && isset($_POST['methodology'])) {
+    if ($_POST['methodology'] == 1) {
+      $query = "INSERT INTO project (name, summary, technology, methodologyId, projectTypeId, courseId) VALUES ('".$_POST['name']."','".$_POST['summary']. "','".$_POST['edit-technologies']."',".$_POST['methodology'].",".$_POST['project-type'].",".$_POST['courses'].")";
     } else {
-      $query = "INSERT INTO project (name, summary, technology, methodologyId, projectTypeId, courseId, peopleAmount, role) VALUES ('".$_GET['name']."','".$_GET['summary']. "','".$_GET['technology']."',".$_GET['methodologyId'].",".$_GET['projectTypeId'].",".$_GET['courseId'].",".$_GET['amount'].",'".$_GET['role']."')";
+      $query = "INSERT INTO project (name, summary, technology, methodologyId, projectTypeId, courseId, peopleAmount, role) VALUES ('".$_POST['name']."','".$_POST['summary']. "','".$_POST['edit-technologies']."',".$_POST['methodology'].",".$_POST['project-type'].",".$_POST['courses'].",".$_POST['amount'].",'".$_POST['rol']."')";
     }
      $conn->query($query);
      $projectId = $conn->insert_id;
 
 
-     // Insert project images
-      if(count($_FILES) > 0) {
-        $targetDir = "../img/";
-        $imgCount = 0;
-        foreach ($_FILES as &$imgItem) {
-          if($imgItem['error'] == 0) {
-            $imgName = $projectId . "_" . $imgCount . "_" . $imgItem['name'];
-            $imgPath = $targetDir . $imgName;
-            $query = "INSERT INTO image (projectId,name,url) VALUES (" . $projectId . "," .
-              "'" . $imgName . "','" . $imgPath . "')";
-            $conn->query($query);
-            move_uploaded_file($imgItem["tmp_name"], $imgPath);
-            $imgCount++;
-          }
+   // Insert project images
+    if(count($_FILES) > 0) {
+      $targetDir = "../img/";
+      $imgCount = 0;
+      foreach ($_FILES as &$imgItem) {
+        if($imgItem['error'] == 0) {
+          $imgName = $projectId . "_" . $imgCount . "_" . $imgItem['name'];
+          $imgPath = $targetDir . $imgName;
+          $query = "INSERT INTO image (projectId,name,url) VALUES (" . $projectId . "," .
+            "'" . $imgName . "','" . $imgPath . "')";
+          $conn->query($query);
+          move_uploaded_file($imgItem["tmp_name"], $imgPath);
+          $imgCount++;
         }
       }
+    }
 
      echo $projectId;
   }else {
