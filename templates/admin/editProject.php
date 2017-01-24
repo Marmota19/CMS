@@ -286,7 +286,7 @@
           <input type="text" id="edit-course-name" name="course-name" placeholder="Nombre">
           <label for="edit-course-code">Código del Curso</label>
           <input type="text" id="edit-course-code" name="course-code" onchange="validateCourse()" placeholder="Código">
-          <button onclick="addCourse();">Agregar</button>
+          <button type="button" onclick="addCourse();">Agregar</button>
         </div>
         <div class="form-item">
           <label for="edit-summary">Resumen</label>
@@ -332,15 +332,18 @@
               $query = "SELECT technologyId, name FROM technology";
               $result = $conn->query($query);
               if ($result->num_rows > 0) { // output data of each row
+                $count = 1;
                 while($row = $result->fetch_assoc()) {
-                  echo("<li><input type='checkbox' name='edit-technologies' value='".$row["name"]."'> <label>".$row["name"]."</label></li> ");
+                  echo("<li><input type='checkbox' name='technology_" . $count ."' value='".$row["technologyId"]."'> <label>".$row["name"]."</label></li> ");
+                  $count++;
+
                 }
               } else { echo "No hay datos"; }
              ?>
           </ul>
           <label for="edit-tech-name">Nueva Tecnología</label><br>
           <input type="text" id="edit-tech-name" name="edit-tech-name" placeholder="Nueva Tecnología">
-          <button onclick="addTech()">Agregar</button>
+          <button type="button" onclick="addTech()">Agregar</button>
         </div>
 
         <div class="form-item">
