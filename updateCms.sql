@@ -95,25 +95,6 @@ CREATE TABLE IF NOT EXISTS `mcortes`.`technology` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `mcortes`.`technologiesPerProject`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mcortes`.`technologiesPerProject` (
-  `projectId` INT NOT NULL,
-  `technologyId` INT NOT NULL,
-  INDEX `fk_technologiesPerProject_project_idx` (`projectId` ASC),
-  INDEX `fk_technologiesPerProject_technology1_idx` (`technologyId` ASC),
-  CONSTRAINT `fk_technologiesPerProject_project`
-    FOREIGN KEY (`projectId`)
-    REFERENCES `mcortes`.`project` (`projectId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_technologiesPerProject_technoloìŒp'®¾pø"Ëcgy1`
-    FOREIGN KEY (`technologyId`)
-    REFERENCES `mcortes`.`technology` (`technologyId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------

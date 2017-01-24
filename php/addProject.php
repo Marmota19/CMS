@@ -2,11 +2,14 @@
   include("dbConnect.php");
 
   if(isset($_GET['courseId']) && isset($_GET['name']) && isset($_GET['projectTypeId']) && isset($_GET['methodologyId'])) {
-
-
-    $query = "INSERT INTO project (name, summary, technology, methodologyId, projectTypeId, courseId, peopleAmount, role) VALUES ('".$_GET['name']."','".$_GET['summary']. "','".$_GET['technology']."',".$_GET['methodologyId'].",".$_GET['projectTypeId'].",".$_GET['courseId'].",".$_GET['amount'].",'".$_GET['role']."')";
+    if ($_GET['methodologyId'] == 1) {
+      $query = "INSERT INTO project (name, summary, technology, methodologyId, projectTypeId, courseId) VALUES ('".$_GET['name']."','".$_GET['summary']. "','".$_GET['technology']."',".$_GET['methodologyId'].",".$_GET['projectTypeId'].",".$_GET['courseId'].")";
+    } else {
+      $query = "INSERT INTO project (name, summary, technology, methodologyId, projectTypeId, courseId, peopleAmount, role) VALUES ('".$_GET['name']."','".$_GET['summary']. "','".$_GET['technology']."',".$_GET['methodologyId'].",".$_GET['projectTypeId'].",".$_GET['courseId'].",".$_GET['amount'].",'".$_GET['role']."')";
+    }
      $conn->query($query);
      $projectId = $conn->insert_id;
+
 
      // Insert project images
       if(count($_FILES) > 0) {
@@ -24,8 +27,6 @@
           }
         }
       }
-
-
 
      echo $projectId;
   }else {
